@@ -6,6 +6,15 @@ from azure.core.credentials import AzureKeyCredential
 from azure.search.documents import SearchClient
 from azure.search.documents.indexes import SearchIndexClient
 from azure.search.documents.indexes.models import SearchIndex 
+from azure.search.documents.indexes.models import (
+    ComplexField,
+    CorsOptions,
+    SearchIndex,
+    ScoringProfile,
+    SearchFieldDataType,
+    SimpleField,
+    SearchableField
+)
 import hashlib
 from azure.storage.blob import ContainerClient
 from azure.storage.blob import BlobServiceClient
@@ -95,7 +104,7 @@ def create_schema_from_json_and_upload(schema, index_name, admin_client, url=Fal
                 cors_options=cors_options)
 
     try:
-        upload_schema = admin_client.create_index(index)
+        upload_schema = admin_client.create_or_update_index(index)
         if upload_schema:
             print(f'Schema uploaded; Index created for {index_name}.')
         else:
@@ -201,8 +210,7 @@ if __name__ == '__main__':
     if args.HOUR != "":
     	path = year + "/" + month + "/" + day + "/" + hour
     
-    print(endpoint)
-    print(key)
+    print("------- Endpoint: " + endpoint)
 
 
     start_client = CreateClient(endpoint, key, index_name)
@@ -210,10 +218,10 @@ if __name__ == '__main__':
     search_client = start_client.create_search_client()
     
     # run only once
-    print(index_schema)
-    print(index_name)
+    print("------- Index schema file: " + index_schema)
+    print("------- Index name: " + index_name)
 
-    #create_index(index_schema, index_name, admin_client)
+    create_index(index_schema, index_name, admin_client)
   
    
 

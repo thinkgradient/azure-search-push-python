@@ -1,14 +1,14 @@
 {
     "search_service":{
-        "name":"bigeosearch",
-        "key": "<enter search api key>",
-        "index_name" : "flightindex",
+        "name":"<insert search service name>",
+        "key": "<insert search service key>",
+        "index_name" : "<insert search index name>",
         "index_schema": "geodata-schema.json"
 
     },
     "storage":{
-        "conn_str": "<enter azure storage connection string>",
-        "container":"flightdata"
+        "conn_str": "<insert storage account connection string>",
+        "container":"<insert storage account container name>"
     },
     "batch_size" : "1000"
 
