@@ -1,13 +1,13 @@
 {
     "search_service":{
         "name":"bigeosearch",
-        "key": "32F5C5060EB7A1223AEE5880B7618E1C",
+        "key": "<enter search api key>",
         "index_name" : "flightindex",
         "index_schema": "geodata-schema.json"
 
     },
     "storage":{
-        "conn_str": "DefaultEndpointsProtocol=https;AccountName=figeodata;AccountKey=MbFYb1GoiB7zSjju/6sVQP9RIifTkCUkiwvYBotBqO1xcoaTyUmV5Zw+FoBRwo0emiR9rutiaeTn50tO7NFhSg==;EndpointSuffix=core.windows.net",
+        "conn_str": "<enter azure storage connection string>",
         "container":"flightdata"
     },
     "batch_size" : "1000"
